@@ -26,3 +26,5 @@ while True:
 yourShift = input("Enter an integer: ")
     # if isinstance(yourShift, int):
         # break
+
+listShift(yourLst, yourShift)
