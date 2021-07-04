@@ -1,4 +1,4 @@
-###### Currently doesn't work, sorry. (Will fix later)
+###### Program works now, the code is commented so it should be easy to understand how it works.
 
 # List Shift
 Shifts a list over to the right or to the left.
