@@ -1,7 +1,6 @@
-# If you want to see what happens if the program takes an invalid input,
-# feel free to comment out/delete lines 34 to 43 and replace that with `yourShift = input("Enter an integer: ")`
-
 def listShift(lst, shift): # Simple list shifting program.
+
+    shift = int(shift) % len(lst) # So we won't have to torture the program with massive numbers.
 
     isInt = True
     try:
@@ -26,20 +25,24 @@ def listShift(lst, shift): # Simple list shifting program.
                 lst.pop()
         return lst
 
+yourLst = []
 while True:
-    yourLst = input("Enter a list: ")
-    if isinstance(yourLst, list):
-        break
+    yourLstLen = input("How long do you want your list? ")
+    if yourLstLen.isnumeric(): break
+    print("It appears you entered something other than a non-negative integer. Please try again.")
+
+for _ in range(int(yourLstLen)):
+    yourLstValue = input("Enter a list element: ")
+    yourLst.append(yourLstValue)
 
 while True:
-    yourShift = input("Enter an integer: ")
+    yourShift = input("Enter a shift value: ")
     isYourInt = True
-    try:
-        int(yourShift)
-    except ValueError:
-        isYourInt = False
-    
-    if isYourInt:
-        break
 
-listShift(yourLst, yourShift)
+    try: int(yourShift)
+    except ValueError: isYourInt = False
+
+    if isYourInt: break
+    print("It appears you entered something other than an integer. Please try again.")
+
+print(listShift(yourLst, yourShift))
